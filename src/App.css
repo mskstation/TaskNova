@@ -1360,3 +1360,369 @@ ul {
     flex: 1;
   }
 }
+/* ==========================================
+   TASK NOVA - DARK AND LIGHT THEME FIX
+   ========================================== */
+
+/* Common theme settings */
+.app {
+  --tn-page: #f1f5f9;
+  --tn-surface: #ffffff;
+  --tn-surface-soft: #f8fafc;
+  --tn-text: #172033;
+  --tn-muted: #61718a;
+  --tn-border: #d9e2ef;
+  --tn-input: #f8fafc;
+  --tn-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+
+  min-height: 100vh;
+  color: var(--tn-text);
+  background: var(--tn-page);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  color-scheme: light;
+}
+
+/* LIGHT THEME */
+.app.light {
+  --tn-page: #f1f5f9;
+  --tn-surface: #ffffff;
+  --tn-surface-soft: #f8fafc;
+  --tn-text: #172033;
+  --tn-muted: #61718a;
+  --tn-border: #d9e2ef;
+  --tn-input: #f8fafc;
+  --tn-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+
+  background: var(--tn-page);
+  color: var(--tn-text);
+  color-scheme: light;
+}
+
+/* DARK THEME */
+.app.dark {
+  --tn-page: #0b1220;
+  --tn-surface: #121e32;
+  --tn-surface-soft: #192840;
+  --tn-text: #eef4ff;
+  --tn-muted: #a6b5cc;
+  --tn-border: #2b3b55;
+  --tn-input: #0d1729;
+  --tn-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+
+  background:
+    radial-gradient(
+      1100px 600px at 15% 0%,
+      #172640 0%,
+      #0b1220 65%
+    );
+
+  color: var(--tn-text);
+  color-scheme: dark;
+}
+
+/* Cards and panels */
+.app .profile-hero,
+.app .dashboard-card,
+.app .mini-stat,
+.app .xp-card,
+.app .goal-card,
+.app .add-task-card,
+.app .todo-item,
+.app .empty,
+.app .profile-modal,
+.app .undo-bar {
+  background-color: var(--tn-surface);
+  color: var(--tn-text);
+  border-color: var(--tn-border);
+  box-shadow: var(--tn-shadow);
+}
+
+/* Text colors */
+.app h1,
+.app h2,
+.app h3,
+.app h4,
+.app p,
+.app span,
+.app strong,
+.app b,
+.app label,
+.app li {
+  color: inherit;
+}
+
+.app .header p,
+.app .welcome-text,
+.app .profile-subtitle,
+.app .profile-xp small,
+.app .task-meta small,
+.app .empty p,
+.app .avatar-tip {
+  color: var(--tn-muted);
+}
+
+/* Input fields and dropdowns */
+.app input,
+.app select,
+.app textarea {
+  background-color: var(--tn-input);
+  color: var(--tn-text);
+  border-color: var(--tn-border);
+}
+
+.app input::placeholder,
+.app textarea::placeholder {
+  color: var(--tn-muted);
+  opacity: 0.9;
+}
+
+.app option {
+  background-color: var(--tn-surface);
+  color: var(--tn-text);
+}
+
+/* Theme and profile buttons */
+.app .theme-btn,
+.app .profile-mini,
+.app .profile-avatar,
+.app .modal-close {
+  background-color: var(--tn-surface-soft);
+  color: var(--tn-text);
+  border: 1px solid var(--tn-border);
+  cursor: pointer;
+}
+
+.app .theme-btn {
+  transition:
+    transform 0.2s ease,
+    background-color 0.25s ease;
+}
+
+.app .theme-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Filter buttons */
+.app .filters button:not(.active),
+.app .category-filters button:not(.active) {
+  background-color: var(--tn-surface-soft);
+  color: var(--tn-text);
+  border-color: var(--tn-border);
+}
+
+/* Profile statistics */
+.app .profile-stats > div {
+  background-color: var(--tn-surface-soft);
+  color: var(--tn-text);
+  border: 1px solid var(--tn-border);
+}
+
+/* Task information */
+.app .task-meta .category-badge,
+.app .task-meta .reminder-badge {
+  color: var(--tn-text);
+}
+
+.app.dark .todo-item.task-completed {
+  opacity: 0.78;
+}
+
+.app.light .todo-item.task-completed {
+  background-color: #f8fafc;
+  opacity: 0.85;
+}
+
+/* Smooth transitions */
+.app .profile-hero,
+.app .dashboard-card,
+.app .mini-stat,
+.app .xp-card,
+.app .goal-card,
+.app .add-task-card,
+.app .todo-item,
+.app .empty,
+.app input,
+.app select,
+.app textarea,
+.app button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Responsive layout */
+@media (max-width: 720px) {
+  .app .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .app .header {
+    gap: 12px;
+  }
+
+  .app .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+/* =========================================
+   TASK NOVA - LIGHT MODE FINAL OVERRIDE
+   Paste this block at the END of App.css
+   ========================================= */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body.theme-light {
+  background: #f1f5f9 !important;
+  color: #172033 !important;
+}
+
+/* Main app background */
+.app.light {
+  background: #f1f5f9 !important;
+  color: #172033 !important;
+
+  --tn-page: #f1f5f9;
+  --tn-surface: #ffffff;
+  --tn-surface-soft: #f8fafc;
+  --tn-text: #172033;
+  --tn-muted: #64748b;
+  --tn-border: #dbe4ef;
+  --tn-input: #ffffff;
+  --tn-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* All main cards must be LIGHT */
+.app.light .profile-hero,
+.app.light .dashboard-card,
+.app.light .mini-stat,
+.app.light .xp-card,
+.app.light .goal-card,
+.app.light .add-task-card,
+.app.light .todo-item,
+.app.light .empty,
+.app.light .profile-modal,
+.app.light .undo-bar {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #172033 !important;
+  border: 1px solid #dbe4ef !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Remove dark decorative overlays on cards */
+.app.light .dashboard-card::before,
+.app.light .dashboard-card::after,
+.app.light .mini-stat::before,
+.app.light .mini-stat::after {
+  opacity: 0.08;
+}
+
+/* All normal text should be readable */
+.app.light h1,
+.app.light h2,
+.app.light h3,
+.app.light h4,
+.app.light p,
+.app.light span,
+.app.light strong,
+.app.light b,
+.app.light label,
+.app.light li {
+  color: #172033;
+}
+
+/* Secondary text */
+.app.light .header p,
+.app.light .welcome-text,
+.app.light .profile-subtitle,
+.app.light .profile-xp small,
+.app.light .task-meta small,
+.app.light .empty p,
+.app.light .avatar-tip {
+  color: #64748b !important;
+}
+
+/* Input fields and dropdowns */
+.app.light input,
+.app.light select,
+.app.light textarea {
+  background: #ffffff !important;
+  color: #172033 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.app.light input::placeholder,
+.app.light textarea::placeholder {
+  color: #64748b !important;
+}
+
+.app.light option {
+  background: #ffffff;
+  color: #172033;
+}
+
+/* Theme and profile buttons */
+.app.light .theme-btn,
+.app.light .profile-mini,
+.app.light .profile-avatar,
+.app.light .modal-close {
+  background: #ffffff !important;
+  color: #172033 !important;
+  border: 1px solid #dbe4ef !important;
+}
+
+/* Inactive filter buttons */
+.app.light .filters button:not(.active),
+.app.light .category-filters button:not(.active) {
+  background: #ffffff !important;
+  color: #172033 !important;
+  border-color: #dbe4ef !important;
+}
+
+/* Profile statistics */
+.app.light .profile-stats > div {
+  background: #f8fafc !important;
+  color: #172033 !important;
+  border-color: #dbe4ef !important;
+}
+
+/* Task metadata badges */
+.app.light .category-badge,
+.app.light .reminder-badge {
+  color: #334155 !important;
+}
+
+/* Completed task */
+.app.light .todo-item.task-completed {
+  background: #f8fafc !important;
+}
+
+/* Keep the main app full width */
+.app.light .container {
+  background: transparent !important;
+}
+
+/* Smooth theme transition */
+.app.light .profile-hero,
+.app.light .dashboard-card,
+.app.light .mini-stat,
+.app.light .xp-card,
+.app.light .goal-card,
+.app.light .add-task-card,
+.app.light .todo-item,
+.app.light button,
+.app.light input,
+.app.light select {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}

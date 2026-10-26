@@ -380,7 +380,7 @@ function App() {
   }
 
   return (
-    <div className={darkMode ? "app dark" : "app"}>
+   <div className={`app ${darkMode ? "dark" : "light"}`}>
       <div className="container">
 
         {/* HEADER */}
